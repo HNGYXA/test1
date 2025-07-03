@@ -47,4 +47,8 @@ git commit --amend
 git push -u origin main  # 若使用 master 分支，则改为 git push -u origin master
 
 # 后续推送（无需指定上游分支）
+<<<<<<< HEAD
 git push
+=======
+git push
+>>>>>>> 576e90e01896b874dc0a2b2bdcefaa3d5a408564
