@@ -1,0 +1,50 @@
+连接 GitHub 远程仓库的详细步骤：
+1.创建 GitHub 仓库
+
+2 本地初始化仓库（已有项目）
+git init
+
+3.连接远程仓库
+# 添加远程仓库地址（HTTPS 方式）
+git remote add origin https://github.com/your-username/repo-name.git
+
+# 或者使用 SSH 方式（需提前配置 SSH key）
+git remote add origin git@github.com:your-username/repo-name.git
+
+# 验证远程仓库是否添加成功
+git remote -v
+
+4. 推送本地代码到远程仓库
+# 将本地主分支推送到远程仓库（第一次推送需指定上游分支）
+git push -u origin main  # 若使用的是 master 分支，则改为 git push -u origin master
+
+5. 克隆远程仓库（新项目）
+# 克隆远程仓库到本地
+git clone https://github.com/your-username/repo-name.git  # HTTPS 方式
+# 或
+git clone git@github.com:your-username/repo-name.git  # SSH 方式
+
+连接 GitHub 远程仓库后，通过以下步骤将本地文件推送到远程仓库:
+1. 添加文件到本地仓库
+# 添加单个文件
+git add filename.txt
+
+# 添加多个文件（用空格分隔）
+git add file1.txt file2.py
+
+# 添加所有修改（常用）
+git add .
+
+2. 提交文件到本地仓库
+# 提交并添加描述
+git commit -m "添加新功能"  # 替换为你的提交描述
+
+# 若需补充上次提交的描述或修改
+git commit --amend
+
+3. 推送到远程仓库
+# 第一次推送（需指定上游分支）
+git push -u origin main  # 若使用 master 分支，则改为 git push -u origin master
+
+# 后续推送（无需指定上游分支）
+git push
