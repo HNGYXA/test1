@@ -1,0 +1,3 @@
+Record=TopLevelDocument|FileName=SK_HC32L021_Top.SchDot|SheetNumber=1
+Record=SheetSymbol|SourceDocument=SK_HC32L021_Top.SchDot|Designator=U_SK_HC32L021|SchDesignator=U_SK_HC32L021|FileName=SK_HC32L021.SchDot|SheetNumber=3|SymbolType=Normal|RawFileName=SK_HC32L021.SchDot|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=SK_HC32L021_Top.SchDot|Designator=U_XH_DapLink|SchDesignator=U_XH_DapLink|FileName=XH_DapLink.SchDot|SheetNumber=2|SymbolType=Normal|RawFileName=XH_DapLink.SchDot|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 

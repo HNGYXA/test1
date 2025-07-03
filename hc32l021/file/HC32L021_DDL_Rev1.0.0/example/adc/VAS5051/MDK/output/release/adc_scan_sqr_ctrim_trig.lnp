@@ -1,0 +1,16 @@
+--cpu Cortex-M0+
+".\output\release\startup_hc32l021.o"
+".\output\release\system_hc32l021.o"
+".\output\release\interrupts_hc32l021.o"
+".\output\release\board_stkhc32l021.o"
+".\output\release\main.o"
+".\output\release\ddl.o"
+".\output\release\sysctrl.o"
+".\output\release\gpio.o"
+".\output\release\adc.o"
+".\output\release\ctrim.o"
+".\output\release\myiic.o"
+--library_type=microlib --strict --scatter ".\output\release\adc_scan_sqr_ctrim_trig.sct"
+--keep=*Handler --summary_stderr --info summarysizes --map --load_addr_map_info --symbols
+--info sizes --info totals
+--list ".\output\release\adc_scan_sqr_ctrim_trig.map" -o .\output\release\adc_scan_sqr_ctrim_trig.axf

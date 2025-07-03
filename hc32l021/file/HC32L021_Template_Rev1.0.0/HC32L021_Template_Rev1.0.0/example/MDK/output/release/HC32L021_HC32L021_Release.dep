@@ -1,0 +1,13 @@
+Dependencies for Project 'HC32L021', Target 'HC32L021_Release': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (..\..\common\system_hc32l021.c)(0x67F4C605)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../source -I ../../common-I.\RTE\_HC32L021_Release-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\HDSC\HC32L02x\1.0.0\Device\Include-D__UVISION_VERSION="534" -D_RTE_ -DHC32L021C8PB -D_RTE_ -D__DEBUG-o .\output\release\system_hc32l021.o --omf_browse .\output\release\system_hc32l021.crf --depend .\output\release\system_hc32l021.d)
+I (..\..\common\system_hc32l021.h)(0x67F4C605)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
+I (..\..\common\hc32l021.h)(0x67F4C605)
+I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0plus.h)(0x5E8ED122)
+I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
+I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
+I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
+F (.\startup_hc32l021.s)(0x67F4C605)(--cpu Cortex-M0+ -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_HC32L021_Release-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\HDSC\HC32L02x\1.0.0\Device\Include--pd "__UVISION_VERSION SETA 534" --pd "_RTE_ SETA 1" --pd "HC32L021C8PB SETA 1" --pd "_RTE_ SETA 1"--list .\output\release\startup_hc32l021.lst --xref -o .\output\release\startup_hc32l021.o --depend .\output\release\startup_hc32l021.d)
+F (..\source\main.c)(0x67F4C605)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../source -I ../../common-I.\RTE\_HC32L021_Release-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\HDSC\HC32L02x\1.0.0\Device\Include-D__UVISION_VERSION="534" -D_RTE_ -DHC32L021C8PB -D_RTE_ -D__DEBUG-o .\output\release\main.o --omf_browse .\output\release\main.crf --depend .\output\release\main.d)
+F (..\readme.txt)(0x67F4C605)()

@@ -1,0 +1,196 @@
+/**
+ *******************************************************************************
+ * @file  main.c
+ * @brief This file provides example of LPUART
+ @verbatim
+   Change Logs:
+   Date             Author          Notes
+   2024-12-02       MADS            First version
+ @endverbatim
+ *******************************************************************************
+ * Copyright (C) 2024, Xiaohua Semiconductor Co., Ltd. All rights reserved.
+ *
+ * This software component is licensed by XHSC under BSD 3-Clause license
+ * (the "License"); You may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *                    opensource.org/licenses/BSD-3-Clause
+ *
+ *******************************************************************************
+ */
+
+/*******************************************************************************
+ * Include files
+ ******************************************************************************/
+#include "ddl.h"
+#include "gpio.h"
+#include "lpm.h"
+#include "lpuart.h"
+#include "sysctrl.h"
+/*******************************************************************************
+ * Local type definitions ('typedef')
+ ******************************************************************************/
+/*******************************************************************************
+ * Local pre-processor symbols/macros ('#define')
+ ******************************************************************************/
+/*******************************************************************************
+ * Global variable definitions (declared in header file with 'extern')
+ ******************************************************************************/
+/*******************************************************************************
+ * Local function prototypes ('static')
+ ******************************************************************************/
+static void LpUartDeepSleepConfig(void);
+static void GpioConfig(void);
+static void LpUartConfig(void);
+/*******************************************************************************
+ * Local variable definitions ('static')
+ ******************************************************************************/
+uint8_t u8TxData[2] = {0x55, 0xAA};
+uint8_t u8RxData    = 00;
+/*******************************************************************************
+ * Function implementation - global ('extern') and local ('static')
+ ******************************************************************************/
+/**
+ * @brief  Main function
+ * @retval int32_t return value, if needed
+ */
+int32_t main(void)
+{
+    /*STK 按键配置*/
+    STK_UserKeyConfig();
+
+    /*  LPUART IO口相关配置*/
+    GpioConfig();
+
+    /*  LPUART 功能配置 */
+    LpUartConfig();
+
+    /* 发送2字节数0x55、0xAA据到上位机 */
+    LPUART_TransmitPoll(LPUART1, u8TxData, 2);
+
+    /* 需按键按下，才能继续运行 */
+    LpUartDeepSleepConfig();
+
+    /*  进入深度休眠模式 */
+    LPM_GotoDeepSleep(TRUE);
+
+    while (1)
+    {
+        ;
+    }
+}
+
+/**
+ * @brief  LPUART1 中断服务函数
+ * @retval None
+ */
+void LpUart1_IRQHandler(void)
+{
+    if (LPUART_IntFlagGet(LPUART1, LPUART_FLAG_FE))
+    {
+        LPUART_IntFlagClear(LPUART1, LPUART_FLAG_FE); /* 清帧错误请求 */
+    }
+    if (LPUART_IntFlagGet(LPUART1, LPUART_FLAG_PE))
+    {
+        LPUART_IntFlagClear(LPUART1, LPUART_FLAG_PE); /* 清奇偶检验错误请求 */
+    }
+
+    if (LPUART_IntFlagGet(LPUART1, LPUART_FLAG_TC))
+    {
+        LPUART_IntFlagClear(LPUART1, LPUART_FLAG_TC); /* 清发送中断请求 */
+
+        LPUART_IntDisable(LPUART1, LPUART_INT_TC); /* 关闭发送中断 */
+        LPUART_IntEnable(LPUART1, LPUART_INT_RC);  /* 使能接收中断 */
+    }
+
+    if (LPUART_IntFlagGet(LPUART1, LPUART_FLAG_RC)) /* 接收数据 */
+    {
+        LPUART_IntFlagClear(LPUART1, LPUART_FLAG_RC); /* 清接收中断请求 */
+        u8RxData = LPUART_ReceiveInt(LPUART1);        /* 接收数据 */
+
+        LPUART_IntDisable(LPUART1, LPUART_INT_RC); /* 关闭接收中断 */
+        LPUART_IntEnable(LPUART1, LPUART_INT_TC);  /* 使能发送中断 */
+        LPUART_TransmitInt(LPUART1, u8RxData);     /* 将接收的数据发出*/
+    }
+}
+
+/**
+ * @brief  LPUART配置
+ * @retval None
+ */
+static void LpUartConfig(void)
+{
+    stc_lpuart_init_t stcLpuartInit;
+
+    /* 外设模块时钟使能 */
+    SYSCTRL_PeriphClockEnable(PeriphClockLpuart1);
+
+    /* 打开XTL */
+    SYSCTRL_ClockSrcEnable(SYSCTRL_CLK_SRC_XTL);
+
+    /* LPUART 初始化 */
+    LPUART_StcInit(&stcLpuartInit);                                    /* 结构体初始化         */
+    stcLpuartInit.u32StopBits               = LPUART_STOPBITS_1;       /* 1停止位              */
+    stcLpuartInit.u32FrameLength            = LPUART_FRAME_LEN_8B_PAR; /* 数据8位，奇偶校验1位 */
+    stcLpuartInit.u32Parity                 = LPUART_B8_PARITY_EVEN;   /* 偶校验               */
+    stcLpuartInit.u32TransMode              = LPUART_MODE_TX_RX;       /* 收发模式             */
+    stcLpuartInit.stcBaudRate.u32SclkSelect = LPUART_SCLK_SEL_XTL;     /* 传输时钟源           */
+    LPUART_Init(LPUART1, &stcLpuartInit);
+
+    /* 当XTL时钟为32768时，调用此函数产生9600波特率 */
+    LPUART_XtlBselSet(LPUART1, LPUART_XTL_BAUD_9600);
+
+    LPUART_IntFlagClearAll(LPUART1);                   /* 清除所有状态标志 */
+    LPUART_IntEnable(LPUART1, LPUART_INT_TC);          /* 使能发送中断 */
+    LPUART_IntDisable(LPUART1, LPUART_INT_RC);         /* 关闭接收中断 */
+    EnableNvic(LPUART1_IRQn, IrqPriorityLevel3, TRUE); /* 系统中断使能 */
+}
+
+/**
+ * @brief  端口配置
+ * @retval None
+ */
+static void GpioConfig(void)
+{
+    stc_gpio_init_t stcGpioInit = {0};
+
+    /* 外设模块时钟使能 */
+    SYSCTRL_PeriphClockEnable(PeriphClockGpio);
+
+    /* 配置PA01为LPUART1_TX */
+    GPIO_StcInit(&stcGpioInit);
+    stcGpioInit.u32Mode      = GPIO_MD_OUTPUT_PP;
+    stcGpioInit.u32PullUp    = GPIO_PULL_UP;
+    stcGpioInit.bOutputValue = TRUE;
+    stcGpioInit.u32Pin       = GPIO_PIN_01;
+    GPIO_Init(GPIOA, &stcGpioInit);
+    GPIO_PA01_AF_LPUART1_TXD();
+
+    /* 配置PA02为LPUART1_RX */
+    GPIO_StcInit(&stcGpioInit);
+    stcGpioInit.u32Mode = GPIO_MD_INPUT;
+    stcGpioInit.u32Pin  = GPIO_PIN_02;
+    GPIO_Init(GPIOA, &stcGpioInit);
+    GPIO_PA02_AF_LPUART1_RXD();
+}
+
+/**
+ * @brief  深度休眠模式外部端口配置
+ * @retval None
+ */
+static void LpUartDeepSleepConfig(void)
+{
+    /* 初始化IO配置为模拟端口(follow STK) */
+    GPIOA->ADS = 0xEFF9u; /* 不用的引脚全部配置成模拟(除TX,RX,USER KEY)*/
+
+    while (!STK_USER_KEY_PRESSED()) /* 等待按键按下，只有按键按下后才能继续运行到低功耗模式*/
+    {
+        ;
+    }
+
+    /* SWD接口配置为GPIO，注意接下来不能进行debug调试 */
+    SYSCTRL_FuncEnable(SYSCTRL_FUNC_SWD_USE_IO);
+}
+
+/******************************************************************************
+ * EOF (not truncated)
+ ******************************************************************************/

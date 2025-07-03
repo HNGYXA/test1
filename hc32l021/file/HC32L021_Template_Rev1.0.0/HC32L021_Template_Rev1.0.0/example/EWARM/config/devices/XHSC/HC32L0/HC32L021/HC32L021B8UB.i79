@@ -1,0 +1,27 @@
+[FILEFORMAT]
+rev=1.6
+
+[CHIP]
+name=HC32L021B8UB
+endiansupport=le
+thumbsupport=true
+armsupport=false
+fpu=None
+SIMD=false
+
+JTAG=false
+SWD=true
+SWO_TraceD0=false
+
+[CORE]
+name=Cortex-M0+
+
+[DDF FILE]
+name=XHSC\HC32L021B8UB.ddf
+
+[LINKER FILE]
+name=$TOOLKIT_DIR$\config\linker\XHSC\HC32L021B8UB.icf
+
+[FLASH LOADER]
+little=$TOOLKIT_DIR$\config\flashloader\XHSC\FlashHC32L021B8UB.board
+

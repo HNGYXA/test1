@@ -1,0 +1,6 @@
+请确认目标芯片与串口模块的连接：
+MCU.VCC           <--->    串口模块.VCC
+MCU.GND           <--->    串口模块.GND
+MCU.TXD(PA14)     <--->    串口模块.RXD
+MCU.RXD(PA13)     <--->    串口模块.TXD
+MCU.RSTB          <--->    串口模块.RTS/DTR

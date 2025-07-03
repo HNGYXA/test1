@@ -1,0 +1,207 @@
+﻿<Language>
+  <LanguageSelect>0</LanguageSelect>
+  <Chinese>
+    <Text>
+      <PartNo>芯片名称</PartNo>
+      <XTAL>XTAL(MHz)</XTAL>
+      <Baudrate>波特率(bps)</Baudrate>
+      <Counts>计数(Dec)</Counts>
+      <Encryption>文件加密</Encryption>
+      <MCUEncryption>芯片加密</MCUEncryption>
+      <PowerSupply>供电</PowerSupply>
+      <Reset>复  位</Reset>
+      <WriteLock>编程时写选项字节</WriteLock>  
+      <WriteLockArea>编程时写保护值设置</WriteLockArea>
+      <Encrypt>加密</Encrypt>
+      <EncryptDisorder>数据加密</EncryptDisorder>
+      <EncryptArea>数据加密范围设置</EncryptArea>
+      <Keys>密钥</Keys>
+      <PGMHexFile>PGM Hex文件</PGMHexFile>
+      <TargetHexFile>目标Hex文件</TargetHexFile>
+	  <TargetBinFile>附加文件(Bin)</TargetBinFile>
+      <MCUInformation>MCU信息</MCUInformation>
+      <Series>系列</Series>
+      <Type>类型</Type>
+      <OK>确定</OK>
+      <Customized>滚码功能</Customized>
+      <Version>版本：</Version>
+      <VersionValue>1.3.00</VersionValue>
+      <WebURL>www.xhsc.com.cn</WebURL>
+      <PageErase>页擦除</PageErase>
+      <ChipErase>片擦除</ChipErase>
+	  <RDLV1>读保护1</RDLV1>
+	  <RDLV2>读保护2</RDLV2>
+	  <RDLV3>读保护3</RDLV3>
+	  <WPLV>写保护</WPLV>
+      <BaudrateValue>
+        <BaudrateValueText>请选择晶振频率</BaudrateValueText>
+        <Items>7</Items>
+        <Item0>9600</Item0>
+        <Item1>19200</Item1>
+        <Item2>38400</Item2>
+        <Item3>76800</Item3>
+        <Item4>115200</Item4>
+        <Item5>128000</Item5>
+        <Item6>256000</Item6>
+      </BaudrateValue>
+	  <UARTMode>USART模式</UARTMode>
+	  <IICMode>IIC模式</IICMode>
+	  <UARTHalfDuplex>UART半双工</UARTHalfDuplex>	  
+	  <UARTDuplex>UART全双工</UARTDuplex>	
+	  <OptionByte>选项字节设置</OptionByte>
+	  <CFGName>配置文件名</CFGName>	  
+	  <Beep>蜂鸣器提示使能</Beep>
+	  <Screen>带屏版</Screen>
+	  <CustomizedPara>定制参数</CustomizedPara>
+	  <OTPProg>OTP烧录</OTPProg>
+	  <LowSpeed>低速模式</LowSpeed>
+	  <RDLV1Keys>读保护1密钥</RDLV1Keys>
+	  <FileStartAddr>文件起始地址：0x</FileStartAddr>
+	  <Start>欢迎使用Programmer Config Tool</Start>
+    </Text>
+    <ErrorInformation>
+      <ErrorInformationText>错误</ErrorInformationText>
+      <SelectTargetMCUEmpty>请输入目标MCU</SelectTargetMCUEmpty>
+      <SelectFrequencyEmpty>请输入晶振频率</SelectFrequencyEmpty>
+      <CountsEmpty>请输入计数值</CountsEmpty>
+      <KeysEmpty>请输入密钥</KeysEmpty>
+      <SelectHexFileEmpty>请选择Hex文件</SelectHexFileEmpty>
+      <URLError>文件路径不正确或文件无效</URLError>
+      <FileFormatError>文件格式错误</FileFormatError>
+      <ProcessError>处理失败</ProcessError>
+      <CountsOverFlow>计数值超出限制</CountsOverFlow>
+      <MCUNotFind>MCU不存在</MCUNotFind>
+      <ParameterErr>参数错误：</ParameterErr>
+	  <XTALOUTRange>XTAL频率超出范围</XTALOUTRange>
+      <FileNameEmpty>请输入配置文件名字</FileNameEmpty>
+      <Error_Customized>定制参数不符合格式!</Error_Customized>
+      <Error_InvalidFileName>文件名不符合Windows命名规则，请重新输入！</Error_InvalidFileName>
+      <Error_FileNameLength>文件名长度超出范围(25个字符以内).</Error_FileNameLength>
+      <Error_InvalidNumber>数据无效，请输入正确格式的数字0x(00-FF)</Error_InvalidNumber>
+	  <Error_NoDevice>无法获取设备信息！！</Error_NoDevice>
+	  <Error_KeyErr>秘钥转换出错，请重新输入！</Error_KeyErr>
+	  <Error_OTPErr>OTP起始地址出错！应从块起始地址开始写入。</Error_OTPErr>	  
+    </ErrorInformation>
+    <WarningInformation>
+      <WarningInformationText>提示</WarningInformationText>
+      <ProcessSuccessful>转换成功</ProcessSuccessful>
+      <CancelMCUEncryption>如果取消MCU芯片加密，可能导致文件从MCU Flash中被获取，是否继续取消MCU芯片加密？</CancelMCUEncryption>
+      <Hint_FileName>请输入自定义文件名</Hint_FileName>
+      <Hint_Customized>请输入定制化参数,参数之间以分号 ; 隔开</Hint_Customized>
+      <Warn_Customized>请输入：地址;步长;初始滚码值,以分号 ; 隔开</Warn_Customized>
+      <Hint_ValidKeyLength>秘钥有效长度应为: 2 - 16</Hint_ValidKeyLength>
+      <Hint_ValidKey>秘钥格式只能为ASCII码！</Hint_ValidKey>
+      <Hint_CfgOLED>请检查您的PGM是否为带屏版,带屏版才可配置此选项!</Hint_CfgOLED>
+      <Hint_ValidFileName>提示: 文件名必须符合ASCII码规则!</Hint_ValidFileName>
+      <Hint_MCUSelection>请搜索或选择对应的芯片型号</Hint_MCUSelection>
+      <Hint_ValidNumber>请输出有效的数字，范围0x(00-FF).</Hint_ValidNumber>
+      <Hint_DefaultNumber>写保护字为默认值0xFFFFFFFF,所需修改请点击“选项字节设置”.</Hint_DefaultNumber>
+	  <Hint_CopyFile>拷贝文件中，请不要拔掉工具或断电!!</Hint_CopyFile>
+	  <Hint_Disorder>当前设置数据加密值为</Hint_Disorder>
+	  <Hint_WPVal>当前设置写保护值为</Hint_WPVal>
+	  <Hint_OTPADDR>输入地址为OTP区域，是否需要锁存？</Hint_OTPADDR>	  
+    </WarningInformation>
+  </Chinese>
+  <English>
+    <Text>
+      <PartNo>Part No.</PartNo>
+      <XTAL>XTAL(MHz)</XTAL>
+      <Baudrate>Baudrate</Baudrate>
+      <Counts>Counts(Dec)</Counts>
+      <Encryption>File-Encry</Encryption>
+      <MCUEncryption>Secure</MCUEncryption>
+      <PowerSupply>Power</PowerSupply>
+      <Reset>Reset</Reset>
+      <WriteLock>Write when programming</WriteLock>
+      <WriteLockArea>Write lock area</WriteLockArea>
+      <Encrypt>Encrypt</Encrypt>
+	  <EncryptDisorder>Data Disorder</EncryptDisorder>
+      <EncryptArea>Encrypt Area Setting</EncryptArea>
+      <Keys>File-ENCY Keys</Keys>
+      <PGMHexFile>PGM Hex File</PGMHexFile>
+      <TargetHexFile>Target Hex File</TargetHexFile>
+	  <TargetBinFile>Target Bin File</TargetBinFile>
+      <MCUInformation>MCU Info.</MCUInformation>
+      <Series>Series</Series>
+      <Type>Type</Type>
+      <OK>OK</OK>
+      <Customized>Customized</Customized>
+      <Version>Version</Version>
+      <VersionValue>1.2.1</VersionValue>
+      <WebURL>www.xhsc.com.cn</WebURL>
+      <PageErase>PageErase</PageErase>
+      <ChipErase>ChipErase</ChipErase>
+	  <RDLV1>RDLV1</RDLV1>
+	  <RDLV2>RDLV2</RDLV2>
+	  <RDLV3>RDLV3</RDLV3>
+	  <WPLV>WPEN</WPLV>
+	  <OptionByte>Option Byte Settings</OptionByte>
+	  <CFGName>Config Name</CFGName>	 
+	  <Beep>Beeping Enable</Beep>
+	  <Screen>With-Screen</Screen>
+	  <CustomizedPara>Customized Para</CustomizedPara>
+	  <OTPProg>OTP Prog</OTPProg>
+	  <LowSpeed>SWD Low Speed</LowSpeed>
+	  <RDLV1Keys>RDLV1 Keys</RDLV1Keys>
+	  <FileStartAddr>File start</FileStartAddr>
+	  <Start>Welcome to the Programmer Config Tool</Start>
+      <BaudrateValue>
+        <BaudrateValueText>Pls Select Baudrate</BaudrateValueText>
+        <Items>7</Items>
+        <Item0>9600</Item0>
+        <Item1>19200</Item1>
+        <Item2>38400</Item2>
+        <Item3>76800</Item3>
+        <Item4>115200</Item4>
+        <Item5>128000</Item5>
+        <Item6>256000</Item6>
+      </BaudrateValue>
+	  <UARTMode>USART</UARTMode>
+	  <IICMode>IIC</IICMode>
+	  <UARTHalfDuplex>UART Half-Duplex</UARTHalfDuplex>	  
+	  <UARTDuplex>UART Full-Duplex</UARTDuplex>	  
+    </Text>
+    <ErrorInformation>
+      <ErrorInformationText>Error</ErrorInformationText>
+      <SelectTargetMCUEmpty>Please press Target MCU!</SelectTargetMCUEmpty>
+      <SelectFrequencyEmpty>Please press Crystal Frequency!</SelectFrequencyEmpty>
+      <SelectHexFileEmpty>Please select Hex File!</SelectHexFileEmpty>
+      <URLError>File URL error or file protected!</URLError>
+      <FileFormatError>File format error!</FileFormatError>
+      <CountsEmpty>Please press count value!</CountsEmpty>
+      <KeysEmpty>Please press count keys!</KeysEmpty>
+      <ProcessError>Process fail!</ProcessError>
+      <CountsOverFlow>Counts OverFlow!</CountsOverFlow>
+      <MCUNotFind>MCU Not Find!</MCUNotFind>
+      <ParameterErr>Parameter error!</ParameterErr>
+	  <XTALOUTRange>XTAL out of range!</XTALOUTRange>
+      <FileNameEmpty>Please press Target filename!</FileNameEmpty>
+      <Error_Customized>Customized parameters do not conform to the format!</Error_Customized>
+      <Error_InvalidFileName>The file name does not comply with Windows naming rules. Please re-enter!</Error_InvalidFileName>
+      <Error_FileNameLength>The file name length exceeds the range of 25 characters or less.</Error_FileNameLength>
+      <Error_InvalidNumber>The data is invalid. Please enter a number in the correct format (00-FF).</Error_InvalidNumber>
+	  <Error_NoDevice>Unable to obtain device information!!</Error_NoDevice>
+	  <Error_KeyErr>Error in key conversion, please re-enter!</Error_KeyErr>
+	  <Error_OTPErr>OTP start address error！It should start from the block start address.</Error_OTPErr>	
+    </ErrorInformation>
+    <WarningInformation>
+      <WarningInformationText>Hint</WarningInformationText>
+      <ProcessSuccessful>Process Successful</ProcessSuccessful>
+      <CancelMCUEncryption>If cancel the MCU Flash lock, may lead to be encrypted files were obtained from the MCU Flash, whether to continue to cancel MCU Flash lock?</CancelMCUEncryption>
+      <Hint_FileName>Please enter a custom file name.</Hint_FileName>
+      <Hint_Customized>Please enter customized parameters</Hint_Customized>
+      <Warn_Customized>Custom parameter formats such as：0x01;0x02;0x03</Warn_Customized>
+      <Hint_ValidKeyLength>The length of the key should be: 2 - 16</Hint_ValidKeyLength>
+      <Hint_ValidKey>The key format can only be ASCII！</Hint_ValidKey>
+      <Hint_CfgOLED>Please check if your PGM is a screen version, which can only be configured with this option!</Hint_CfgOLED>
+      <Hint_ValidFileName>The file name must comply with ASCII code rules!</Hint_ValidFileName>
+      <Hint_MCUSelection>Please search or select the corresponding chip model!</Hint_MCUSelection>
+      <Hint_ValidNumber>Please output a valid number, range 0x(00-FF).</Hint_ValidNumber>
+      <Hint_DefaultNumber>The write protected word is set to the default value of 0xFFFFFFFF. To modify it, please click on "Option Byte Settings".</Hint_DefaultNumber>
+	  <Hint_CopyFile>Please do not unplug the tool or power off while copying the file!!</Hint_CopyFile>
+	  <Hint_Disorder>The current data encryption value is</Hint_Disorder>
+	  <Hint_WPVal>The current write-protection value is </Hint_WPVal>
+	  <Hint_OTPADDR>The input address is in the OTP range. Is it required to be locked?</Hint_OTPADDR>	  
+    </WarningInformation>
+  </English>
+</Language>
