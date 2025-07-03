@@ -1,4 +1,4 @@
 ctrl + c  停止正在克隆的文件
 git branch -M main 将本地分支重命名为 main
 git pull origin master   拉取远程仓库（把远程仓库的所有文件复制到本地仓库），master：分支名称
-git status 查看文件状态
+git status 查看文件状态  1
