@@ -47,6 +47,7 @@ git commit --amend
 git push -u origin main  # 若使用 master 分支，则改为 git push -u origin master
 
 # 后续推送（无需指定上游分支）
+<<<<<<< HEAD
 git push
 
 推送时出现错误相同的引用：the same ref. If you want to integrate the remote changes, use
@@ -62,3 +63,4 @@ git commit -m "Merge remote changes"
 
 # 3. 再次推送
 git push origin master
+
