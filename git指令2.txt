@@ -1,0 +1,2 @@
+ctrl + c  停止正在克隆的文件
+git branch -M main 将本地分支重命名为 main
