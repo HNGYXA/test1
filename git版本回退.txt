@@ -1,0 +1,18 @@
+按提交 ID 回退的核心命令
+1. 使用 git reset（丢弃后续提交，本地操作）
+# 查看历史提交，找到目标提交ID（前几位即可，如 abc123）
+git log --oneline
+
+# 回退到指定提交（保留工作区修改）
+git reset abc123
+
+# 彻底丢弃后续提交（危险！工作区文件也会被覆盖）
+git reset --hard abc123
+
+
+#恢复被丢弃的提交
+即使你使用了 --hard 选项，被丢弃的提交 ID 仍然存在于引用日志中
+使用 git reflog 找回被丢弃的提交
+git reflog
+# 恢复到提交4
+git reset --hard f123abc  //变成指定版本
