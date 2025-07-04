@@ -67,6 +67,16 @@ git push origin master
 
 
 
+*****删除并重新添加远程仓库*****
+# 删除原远程仓库
+git remote remove origin
+# 添加新远程仓库
+git remote add origin 新仓库地址
+#查看远程配置
+git remote -v
+
+
+
 *****报错22：*****
 # 编辑SSH配置文件
 nano ~/.ssh/config
@@ -76,3 +86,23 @@ Host github.com
   Hostname ssh.github.com
   Port 443
   User git
+
+
+*****基于master添加master2分支*****
+步骤 1：确保本地仓库与远程同步
+# 拉取远程所有分支的最新内容
+git fetch origin
+
+# 查看所有分支（包括远程分支）
+git branch -a
+
+步骤 2：基于远程 master 创建本地 master2 分支
+git checkout -b master2 origin/master
+
+步骤 3：（可选）在本地测试或修改 master2
+# 例如：修改文件后
+git add .
+git commit -m "Initial commit for master2"
+
+步骤 4：将本地 master2 推送到远程仓库
+git push -u origin master2
