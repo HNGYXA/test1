@@ -1,4 +1,4 @@
-连接 GitHub 远程仓库的详细步骤：
+﻿*****连接 GitHub 远程仓库的详细步骤：*****
 1.创建 GitHub 仓库
 
 2 本地初始化仓库（已有项目）
@@ -24,7 +24,8 @@ git clone https://github.com/your-username/repo-name.git  # HTTPS 方式
 # 或
 git clone git@github.com:your-username/repo-name.git  # SSH 方式
 
-连接 GitHub 远程仓库后，通过以下步骤将本地文件推送到远程仓库:
+
+*****连接 GitHub 远程仓库后，通过以下步骤将本地文件推送到远程仓库:*****
 1. 添加文件到本地仓库
 # 添加单个文件
 git add filename.txt
@@ -64,3 +65,14 @@ git commit -m "Merge remote changes"
 # 3. 再次推送
 git push origin master
 
+
+
+*****报错22：*****
+# 编辑SSH配置文件
+nano ~/.ssh/config
+
+# 添加以下内容
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+  User git
