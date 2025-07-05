@@ -1,8 +1,7 @@
 ﻿ctrl + c  停止正在克隆的文件
 git branch -M main 将本地分支重命名为 main
-git pull origin master   拉取远程仓库（把远程仓库的所有文件复制到本地仓库），master：分支名称
+git pull origin  拉取远程仓库（把远程仓库的所有文件复制到本地仓库）
 git push -f origin 本地分支名:远程分支名  //强制覆盖远程的文件，会清除所有历史记录
-
 git status 查看文件状态  12
 git branch -a 查看远程分支
 git push origin -- delete masters 删除远程分支

@@ -1,4 +1,4 @@
-﻿*****连接 GitHub 远程仓库的详细步骤：*****
+﻿**************************连接 GitHub 远程仓库的详细步骤：****************
 1.创建 GitHub 仓库
 
 2 本地初始化仓库（已有项目）
@@ -10,6 +10,8 @@ git remote add origin https://github.com/your-username/repo-name.git
 
 # 或者使用 SSH 方式（需提前配置 SSH key）
 git remote add origin git@github.com:your-username/repo-name.git
+*****(断开远程仓库连接)*****
+git remote remove origin
 
 # 验证远程仓库是否添加成功
 git remote -v
@@ -23,9 +25,9 @@ git push -u origin main  # 若使用的是 master 分支，则改为 git push -u
 git clone https://github.com/your-username/repo-name.git  # HTTPS 方式
 # 或
 git clone git@github.com:your-username/repo-name.git  # SSH 方式
+**************************连接 GitHub 远程仓库的详细步骤：****************
 
-
-*****连接 GitHub 远程仓库后，通过以下步骤将本地文件推送到远程仓库:*****
+********************连接 GitHub 远程仓库后，通过以下步骤将本地文件推送到远程仓库:************************
 1. 添加文件到本地仓库
 # 添加单个文件
 git add filename.txt
@@ -65,19 +67,9 @@ git commit -m "Merge remote changes"
 # 3. 再次推送
 git push origin master
 
+********************连接 GitHub 远程仓库后，通过以下步骤将本地文件推送到远程仓库:************************
 
-
-*****删除并重新添加远程仓库*****
-# 删除原远程仓库
-git remote remove origin
-# 添加新远程仓库
-git remote add origin 新仓库地址
-#查看远程配置
-git remote -v
-
-
-
-*****报错22：*****
+***********************报错22:*********************
 # 编辑SSH配置文件
 nano ~/.ssh/config
 
@@ -86,9 +78,9 @@ Host github.com
   Hostname ssh.github.com
   Port 443
   User git
+***********************报错22:*********************
 
-
-*****基于master添加master2分支*****
+********************基于master添加master2分支*********************
 步骤 1：确保本地仓库与远程同步
 # 拉取远程所有分支的最新内容
 git fetch origin
@@ -106,3 +98,4 @@ git commit -m "Initial commit for master2"
 
 步骤 4：将本地 master2 推送到远程仓库
 git push -u origin master2
+********************基于master添加master2分支*********************
