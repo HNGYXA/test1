@@ -6,8 +6,29 @@ git add . //添加文件到本地仓库
 git commit -m "注释" //提交文件到本地仓库
 git push -u origin master //推送到远程仓库
 
-同步远程本地仓库：（强制覆盖）
+同步文件！！！
+
+本地文件比远程多 
 git add .
-git commit -m "Finalize local changes"
+git commit -m "注释"
+git push
+
+远程文件比本地多 
+git fetch --all 获取远程仓库的所有更新
+git reset --hard origin/master 将本地分支重置为与远程master分支相同的状态，放弃本地的所有修改
+git pull 从远程拉取最新代码，确保本地是最新版本
+
+都不一样：
+。。。。。。
+
+
+
+
+
+
+同步远程本地仓库：（强制覆盖）
 git push -f origin main  # 将本地main分支强制推送到远程
-git pull origin master #远程强制推送到本地master分支
+
+git fetch origin  # 先下载远程更新，但不合并
+git reset --hard origin/master  # 强制重置本地分支
+
