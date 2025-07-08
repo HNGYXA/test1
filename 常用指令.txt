@@ -4,7 +4,16 @@ git remote -v //查看远程仓库连接状态
 git remote remove origin //断开远程仓库连接
 git add . //添加文件到本地仓库
 git commit -m "注释" //提交文件到本地仓库
-git push -u origin master //推送到远程仓库
+
+git push -u origin master //推送到远程仓库 
+//-u  本地与远程建立器关联  下次推送就可用git push
+//master：表示本地master与远程master建立关联
+//master:master 也是表示本地master与远程master建立关联
+//main:master 表示本地mian跟踪远程master
+
+
+
+
 
 同步文件！！！
 
