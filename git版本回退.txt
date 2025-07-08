@@ -17,3 +17,7 @@ git reset --hard f123abc  //变成指定版本
 #强制覆盖远程仓库
 # 假设本地分支已回退到正确状态
 git push -f origin master  # 强制覆盖远程分支
+
+#查看版本差异
+
+git diff 版本ID //
